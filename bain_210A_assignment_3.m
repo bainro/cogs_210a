@@ -10,15 +10,16 @@ PL = repmat(P,totalP,1);
 
 
 K = 74;
-C =  % contrast
+C = 0.5; % contrast; will vary if we need to re-make fig.4b
 v = 3.7;
 sT = 0.38; 
 sL = sT; % set to be equal to sigT to match the paper
-mu = 
-Kw =  
+mu = 0.002;
+Kw = 1;
 dw =  % Systematically varied between 0.14 and 0.718 (p. 745)
 S = 
-sn = % For Gaussian noise with fixed variance
+% @TODO they noted this value as squared in the paper, so might try 5 if goofy results ensue.
+sn = 25; % For Gaussian noise with fixed variance
 
 % How many trials will we run?
 N = 
