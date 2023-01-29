@@ -43,12 +43,15 @@ LAMBDA = (2*pi*P)/totalP; LAMBDAS = repmat(LAMBDA,totalP,1);
 % given the current input. Using the above parameters, implement Eq 6
 % f = ...
 
-%% theta is actual stimulus, theta_i is grid dependent
+%% theta is actual stimulus, theta_i is grid dependent.
+% Should be 2D grid of values
 function f = calcFR(theta, theta_i, lam, lam_i)
     term_1 = (cos(theta - theta_i) - 1) / sT ** 2;
     term_2 = (cos(lam - lam_i) - 1) / sL ** 2;
-    f = K * C * exp(term_1 + term_2) + v;
+    f = K .* C .* exp(term_1 + term_2) + v;
 end
+
+f = calcFR()
 
 for n = 1:N
     % To initialize the network, we need to add random noise to those mean
@@ -64,7 +67,8 @@ for n = 1:N
     % normrnd takes in normrnd(MU,SIGMA), with SIGMA = standard deviation
     % So we must take the square root of f to provide 'sigma':
     
-    alpha =  % Initial conditions, see equations 6 & 7
+    % Essentially f + some noise added (Eq 7?)
+    alpha = f; % Initial conditions, see equations 6 & 7
     
     % "The initial conditions, oij(t = 0), for evolution equations 1 and
     % 2 were determined by setting oij(0) to the activity of the input
