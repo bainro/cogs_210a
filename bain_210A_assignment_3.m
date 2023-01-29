@@ -24,13 +24,13 @@ S = 5;
 sn = 25; % For Gaussian noise with fixed variance
 
 % How many trials will we run?
-N = 
+N = 3;
 
 % Give the system an orientation and spatial frequency input
 % This is in the format of an i,j coordinate, then transforms into radians
 % as described just after Equation 6
-T = 10; T = (2*pi*T)/totalP;
-L = 10; L = (2*pi*L)/totalP;
+T = 10; T = (2*pi*T) / totalP;
+L = 10; L = (2*pi*L) / totalP;
 
 % Initialize response network
 % Here we use the same transformation as just previously, then create
