@@ -74,10 +74,6 @@ for n = 1:N
     o(:,:,1) = alpha; % Set up for doing this in a loop. These are the initial conditions.
 
     % Now compute what is going to happen on the next time step
-    % (This could be done much more efficiently, but for the sake of
-    % transparency we will be terrible and use nested for-loops because
-    % sometimes it's easier to do that than to think in multidimensional
-    % matrices)
     for i = 1:totalP
         for j = 1:totalP
 
