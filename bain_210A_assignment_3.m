@@ -41,7 +41,7 @@ LAMBDA = (2*pi*P)/totalP; LAMBDAS = repmat(LAMBDA,totalP,1);
 
 % This gives us the mean firing rate of each 'neuron' at each location
 % given the current input. Using the above parameters, implement Eq 6
-
+% f = ...
 function f = calcFR(theta, lam)
     term_1 = (cos(theta - theta_i) - 1) / sT ** 2;
     term_2 = (cos(lam - lam_i) - 1) / sL ** 2;
