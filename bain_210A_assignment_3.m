@@ -16,7 +16,8 @@ sT = 0.38;
 sL = sT; % set to be equal to sigT to match the paper
 mu = 0.002;
 Kw = 1;
-dw =  % Systematically varied between 0.14 and 0.718 (p. 745)
+% @TODO chose roughly the middle... How was it varied? Besides "systematicall"...
+dw = 0.45; % Systematically varied between 0.14 and 0.718 (p. 745)
 % @TODO no idea what this should be, it's a const in the denom of Eq. (2)
 % Bottom part of Fig. 2 makes me think it's ~5 (look at the avg Z-axis value)
 S = 5;
@@ -40,7 +41,9 @@ LAMBDA = (2*pi*P)/totalP; LAMBDAS = repmat(LAMBDA,totalP,1);
 
 % This gives us the mean firing rate of each 'neuron' at each location
 % given the current input. Using the above parameters, implement Eq 6
-f = 
+term_1 = (cos(theta - theta_i) - 1) / sT ** 2;
+term_2 = (cos(lam - lam_i) - 1) / sL ** 2;
+f = K * C * exp(term_1 + term_2) + v;
 
 for n = 1:N
     % To initialize the network, we need to add random noise to those mean
