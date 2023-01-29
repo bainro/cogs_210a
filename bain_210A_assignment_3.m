@@ -9,11 +9,11 @@ PT = repmat(P',1,totalP);
 PL = repmat(P,totalP,1);
 
 
-K = 
+K = 74;
 C =  % contrast
-v = 
-sT =  
-sL =  % set to be equal to sigT to match the paper
+v = 3.7;
+sT = 0.38; 
+sL = sT; % set to be equal to sigT to match the paper
 mu = 
 Kw =  
 dw =  % Systematically varied between 0.14 and 0.718 (p. 745)
