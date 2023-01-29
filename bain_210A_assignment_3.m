@@ -17,7 +17,9 @@ sL = sT; % set to be equal to sigT to match the paper
 mu = 0.002;
 Kw = 1;
 dw =  % Systematically varied between 0.14 and 0.718 (p. 745)
-S = 
+% @TODO no idea what this should be, it's a const in the denom of Eq. (2)
+% Bottom part of Fig. 2 makes me think it's ~5 (look at the avg Z-axis value)
+S = 5;
 % @TODO they noted this value as squared in the paper, so might try 5 if goofy results ensue.
 sn = 25; % For Gaussian noise with fixed variance
 
