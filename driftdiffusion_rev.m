@@ -25,7 +25,7 @@ for j = 1:ntrials
         draw = normrnd(drawn_mu*dt,sd*sqrt(dt),[1,nsteps]);  %DRAW A WALK
         sample(1) = bias; %START AT BIAS
         sample(2:nsteps+1) = draw; 
-        walk = sample;%cumsum(sample); %SUM THE WALK.   
+        walk = cumsum(sample); %SUM THE WALK.   
         crossbnd = find((walk > criterion) |(walk < 0)); %TEST BOTH BOUNDARIES  
         if ~isempty(crossbnd) %TEST IF IT CROSSED ONE OF THE BOUNDARIES AT LEAST
             goodpath = 1; %WALK IS GOOD, SET TO 1 TO EXIT WHILE LOOP
