@@ -6,11 +6,12 @@ dt = 0.001;
 ntrials = 500; %NUMBER OF RUNS
 mu = 0.5;
 ndt = 0.5; %NON-DECISION TIME
-beta = 0.5; % NORMALIZED BIAS
-bias = beta*criterion; %ACTUAL BIAS
 sd = 1;   %THIS IS VARIABILITY WITHIN THE WALK.  KEEP FIXED AT 1. 
 nsteps = 2500; %MAX LENGTH OF WALK.  INCREASE TILL WARNING GOES AWAY
 criterion = 1; %CORRECT BOUNDARY LOCATION, INCORRECT IS ZERO 
+beta = 0.5; % NORMALIZED BIAS
+bias = beta*criterion; %ACTUAL BIAS
+
 %set random number seed 
 rng(19680104);
 %OUTPUT VARIABLES
