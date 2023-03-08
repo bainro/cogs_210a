@@ -90,7 +90,7 @@ for j = 1:ntrials
     goodpath = 0;
     while goodpath == 0
         draw = normrnd(mu*dt,sd*sqrt(dt),[1,nsteps]);  %DRAW A WALK
-        beta = unifrnd(0.2, 0.8, [1,1]); % NORMALIZED BIAS
+        beta = unifrnd(0.01, 1., [1,1]); % NORMALIZED BIAS
         bias = beta * criterion; % ACTUAL BIAS
         sample(1) = bias;
         sample(2:nsteps+1) = draw; 
