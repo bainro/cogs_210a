@@ -1,4 +1,5 @@
-%%
+clear; close all; clc;
+
 %fix step size
 dt = 0.001;
 %parameter 
