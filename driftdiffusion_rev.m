@@ -74,7 +74,7 @@ legend('Error', 'Correct');
 
 xlabel('Response Time')
 ylabel('Number of Trials')
-title('Correct vs Error Trials 1')
+title('Correct vs Error Trials 1' + mean(errorrt))
 
 
 %OUTPUT VARIABLES
