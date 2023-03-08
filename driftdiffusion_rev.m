@@ -21,7 +21,7 @@ correct = zeros(ntrials,1); %This is accuracy data. ZERO IS WRONG, ONE IS RIGHT
 for j = 1:ntrials
     goodpath = 0;
     while goodpath == 0
-        drawn_mu = unifrnd(0.2,1.2,[1,1]);
+        drawn_mu = unifrnd(0.2,0.3,[1,1]);
         draw = normrnd(drawn_mu*dt,sd*sqrt(dt),[1,nsteps]);  %DRAW A WALK
         sample(1) = bias; %START AT BIAS
         sample(2:nsteps+1) = draw; 
@@ -86,7 +86,7 @@ correct = zeros(ntrials,1); %This is accuracy data. ZERO IS WRONG, ONE IS RIGHT
 for j = 1:ntrials
     goodpath = 0;
     while goodpath == 0
-        drawn_mu = unifrnd(.6,1.6,[1,1]);
+        drawn_mu = unifrnd(1.5,1.6,[1,1]);
         draw = normrnd(drawn_mu*dt,sd*sqrt(dt),[1,nsteps]);  %DRAW A WALK
         sample(1) = bias; %START AT BIAS
         sample(2:nsteps+1) = draw; 
