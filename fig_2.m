@@ -27,13 +27,14 @@ for i_ = 1:100
     path = zeros(ntrials,nsteps+1); %This is all the random walks
     rt = zeros(ntrials,1);  %These are the rts across trials 
     correct = zeros(ntrials,1); %This is accuracy data. ZERO IS WRONG, ONE IS RIGHT
-    sampled_mu = normrnd(mu,0.1,[1,1]);
+    sampled_beta = normrnd(0.5,0.05,[1,1]);
+    sampled_bias = sampled_beta*criterion; % ACTUAL BIAS
     %LOOP OVER ntrials.  
     for j = 1:ntrials
         goodpath = 0;
         while goodpath == 0
-            draw = normrnd(sampled_mu*dt,sd*sqrt(dt),[1,nsteps]);  %DRAW A WALK
-            sample(1) = bias; %START AT BIAS
+            draw = normrnd(mu*dt,sd*sqrt(dt),[1,nsteps]);  %DRAW A WALK
+            sample(1) = sampled_bias; %START AT BIAS
             sample(2:nsteps+1) = draw; 
             walk = cumsum(sample); %SUM THE WALK.   
             crossbnd = find((walk > criterion) |(walk < 0)); %TEST BOTH BOUNDARIES  
@@ -61,7 +62,7 @@ for i_ = 1:100
     total_errorrt = [total_errorrt; errorrt];
     % this trial's avg
     avg_err_rt = mean(errorrt);
-    err_pr = 1 - mean(correct)
+    err_pr = 1 - mean(correct);
     total_err_rt = total_err_rt + avg_err_rt * err_pr;
     total_err_pr = total_err_pr + err_pr;
 end
