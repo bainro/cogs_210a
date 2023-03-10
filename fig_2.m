@@ -6,12 +6,10 @@ dt = 0.001;
 %parameter 
 ndt = 0.5; %NON-DECISION TIME
 mu = 0.5;  %BY CONVENTION MU MUST BE POSITIVE 
-sd = 1;   %THIS IS VARIABILITY WITHIN THE WALK.  KEEP FIXED AT 1. 
-nsteps = 2500; %MAX LENGTH OF WALK.  INCREASE TILL WARNING GOES AWAY
+sd = 0.5;   %THIS IS VARIABILITY WITHIN THE WALK.  KEEP FIXED AT 1. 
+nsteps = 10000; %MAX LENGTH OF WALK.  INCREASE TILL WARNING GOES AWAY
 ntrials = 500; %NUMBER OF RUNS
 criterion = 1; %CORRECT BOUNDARY LOCATION, INCORRECT IS ZERO 
-beta = 0.5; % NORMALIZED BIAS
-bias = beta*criterion; %ACTUAL BIAS
 total_err_pr = 0; % keep running sum of err probability
 total_err_rt = 0; % use total_err_pr to normalize this value
 %set random number seed 
@@ -27,7 +25,7 @@ for i_ = 1:100
     path = zeros(ntrials,nsteps+1); %This is all the random walks
     rt = zeros(ntrials,1);  %These are the rts across trials 
     correct = zeros(ntrials,1); %This is accuracy data. ZERO IS WRONG, ONE IS RIGHT
-    sampled_beta = normrnd(0.5,0.2,[1,1]);
+    sampled_beta = normrnd(0.5,0.1,[1,1]);
     sampled_bias = sampled_beta*criterion; % ACTUAL BIAS
     %LOOP OVER ntrials.  
     for j = 1:ntrials
