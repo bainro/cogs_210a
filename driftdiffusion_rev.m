@@ -67,7 +67,7 @@ for i_ = 1:100
 end
 
 bins = linspace(0,5,40);
-[n1,x] = histogram(total_errorrt, bins); 
+tmp_ = histogram(total_errorrt, bins); 
 % h = bar(x, n1);
 
 % avg now over all trials
@@ -140,7 +140,7 @@ for i_ = 1:100
 end
 
 bins = linspace(0,5,40);
-[n1,x] = histogram(total_errorrt, bins); 
+tmp_ = histogram(total_errorrt, bins); 
 % h = bar(x, n1);
 
 % avg now over all trials
