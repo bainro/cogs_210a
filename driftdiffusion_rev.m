@@ -18,7 +18,7 @@ total_err_rt = 0; % use total_err_pr to normalize this value
 rng(19680104);
 
 figure
-total_errorrt = [] % used for histogram, accumulate all error_trials
+total_errorrt = []; % used for histogram, accumulate all error_trials
 
 % loop over all 100 samples of drift rate (i.e. mu)
 for i_ = 1:100
