@@ -70,7 +70,7 @@ for i_ = 1:100
     total_err_pr = total_err_pr + err_pr;
 end
 
-bins = linspace(0,2,40);
+bins = linspace(0,4,40);
 [n1,x] = hist(total_errorrt, bins); 
 h = bar(x, n1);
 
