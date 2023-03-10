@@ -28,10 +28,6 @@ for i_ = 1:100
     rt = zeros(ntrials,1);  %These are the rts across trials 
     correct = zeros(ntrials,1); %This is accuracy data. ZERO IS WRONG, ONE IS RIGHT
     sampled_mu = normrnd(mu,0.1,[1,1]);
-    if sampled_mu < 0
-        sampled_mu
-        "SHIT"
-    end
     %LOOP OVER ntrials.  
     for j = 1:ntrials
         goodpath = 0;
