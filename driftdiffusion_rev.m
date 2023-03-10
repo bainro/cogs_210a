@@ -67,13 +67,12 @@ for i_ = 1:100
 end
 
 bins = linspace(0,5,40);
-tmp_ = histogram(total_errorrt, bins); 
-% h = bar(x, n1);
+tmp_ = histogram(total_errorrt, bins, "FaceColor","g"); 
 
 % avg now over all trials
 % weighed mean err response time!
 avg_err_rt = total_err_rt / total_err_pr
-xline(avg_err_rt,'--b');
+xline(avg_err_rt,'--g');
 xlabel('Response Time')
 ylabel('Number of Trials')
 title('Error Trial RTs')
@@ -140,11 +139,10 @@ for i_ = 1:100
 end
 
 bins = linspace(0,5,40);
-tmp_ = histogram(total_errorrt, bins); 
-% h = bar(x, n1);
+tmp_ = histogram(total_errorrt, bins, "FaceColor","b"); 
 
 % avg now over all trials
 % weighed mean err response time!
 avg_err_rt = total_err_rt / total_err_pr
-xline(avg_err_rt,'--g');
-legend('Drift Rate Variability', 'Bias Variability');
+xline(avg_err_rt,'--b');
+legend('drift rate RTs', 'drift rate avg RT', 'bias RTs', 'bias avg RT');
