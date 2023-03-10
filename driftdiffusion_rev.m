@@ -16,16 +16,16 @@ total_err_pr = 0; % keep running sum of err probability
 total_err_rt = 0; % use total_err_pr to normalize this value
 %set random number seed 
 rng(19680104);
-%OUTPUT VARIABLES
-sample = zeros(1,nsteps+1);   %This is a single random draw from normal distribution
-path = zeros(ntrials,nsteps+1); %This is all the random walks
-rt = zeros(ntrials,1);  %These are the rts across trials 
-correct = zeros(ntrials,1); %This is accuracy data. ZERO IS WRONG, ONE IS RIGHT
 
 figure
 
 % loop over all 100 samples of drift rate (i.e. mu)
 for i_ = 1:100
+    % OUTPUT VARIABLES
+    sample = zeros(1,nsteps+1);   %This is a single random draw from normal distribution
+    path = zeros(ntrials,nsteps+1); %This is all the random walks
+    rt = zeros(ntrials,1);  %These are the rts across trials 
+    correct = zeros(ntrials,1); %This is accuracy data. ZERO IS WRONG, ONE IS RIGHT
     sampled_mu = normrnd(mu,0.1,[1,1]);
     %LOOP OVER ntrials.  
     for j = 1:ntrials
