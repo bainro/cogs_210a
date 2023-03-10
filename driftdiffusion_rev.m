@@ -22,6 +22,8 @@ path = zeros(ntrials,nsteps+1); %This is all the random walks
 rt = zeros(ntrials,1);  %These are the rts across trials 
 correct = zeros(ntrials,1); %This is accuracy data. ZERO IS WRONG, ONE IS RIGHT
 
+figure
+
 % loop over all 100 samples of drift rate (i.e. mu)
 for i = 1:100
     sampled_mu = normrnd(mu,0.1,[1,1])
@@ -55,38 +57,21 @@ for i = 1:100
     %convert rt to milliseconds
     rt = rt*dt;
     errorrt = rt(find(correct == 0));
+    % this trial's avg
     avg_err_rt = mean(errorrt);
     err_pr = 1 - mean(correct);
-    total_err_pr += err_pr;
-    total_err_rt += avg_err_rt;
+    total_err_rt = total_err_rt + avg_err_rt * err_pr;
+    total_err_pr = total_err_pr + err_pr;
+    hold on
+    bins = linspace(0,2,40);
+    [n1,x] = hist(errorrt, bins); 
+    h = bar(x, n1);
 end
 
-%compute accuracy
-accuracy = mean(correct);  %COMPUTER FRACTION CORRECT
-%convert rt to milliseconds
-rt = rt*dt;
-%plot all the random walks. 
-figure
-plot(path');
-xlabel('Time')
-ylabel('Evidence')
-set(gca,'YLim',[-0.5 criterion+0.5])
-%Make a histogram of all random walks. 
-figure  
-bins = linspace(0,2,40);  
-hist(rt,bins);
+% avg now over all trials
+% weighed mean err response time!
+avg_err_rt = total_err_rt / total_err_pr;
+xline(avg_err_rt,'--b');
 xlabel('Response Time')
 ylabel('Number of Trials')
-title('All Trials')
-%Make a histogram separating correct from incorrect 
-errorrt = rt(find(correct == 0));  % THIS IS JUST THE INCORRECT TRIALS
-correctrt = rt(find(correct == 1)); %THIS IS JUST THE CORRECT TRIALS
-figure
-[n1,x] = hist(errorrt, bins); 
-[n2,x] = hist(correctrt, bins);
-h = bar(x,[n1; n2]);
-legend('Error', 'Correct');
-
-xlabel('Response Time')
-ylabel('Number of Trials')
-title('Correct vs Error Trials')
+title('Error Trial RTs')
