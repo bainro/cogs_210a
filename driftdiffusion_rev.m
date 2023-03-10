@@ -18,6 +18,7 @@ total_err_rt = 0; % use total_err_pr to normalize this value
 rng(19680104);
 
 figure
+total_errorrt = [] % used for histogram, accumulate all error_trials
 
 % loop over all 100 samples of drift rate (i.e. mu)
 for i_ = 1:100
@@ -57,16 +58,17 @@ for i_ = 1:100
     %convert rt to milliseconds
     rt = rt*dt;
     errorrt = rt(find(correct == 0));
+    total_errorrt = total_errorrt + errorrt
     % this trial's avg
     avg_err_rt = mean(errorrt);
     err_pr = 1 - mean(correct)
     total_err_rt = total_err_rt + avg_err_rt * err_pr;
     total_err_pr = total_err_pr + err_pr;
-    hold on
-    bins = linspace(0,2,40);
-    [n1,x] = hist(errorrt, bins); 
-    h = bar(x, n1);
 end
+
+bins = linspace(0,2,40);
+[n1,x] = hist(total_errorrt, bins); 
+h = bar(x, n1);
 
 % avg now over all trials
 % weighed mean err response time!
