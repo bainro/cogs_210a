@@ -31,6 +31,7 @@ for i_ = 1:100
     if sampled_mu < 0
         sampled_mu
         "SHIT"
+    end
     %LOOP OVER ntrials.  
     for j = 1:ntrials
         goodpath = 0;
