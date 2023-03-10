@@ -67,8 +67,8 @@ for i_ = 1:100
 end
 
 bins = linspace(0,5,40);
-[n1,x] = hist(total_errorrt, bins); 
-h = bar(x, n1);
+[n1,x] = histogram(total_errorrt, bins); 
+% h = bar(x, n1);
 
 % avg now over all trials
 % weighed mean err response time!
@@ -140,8 +140,8 @@ for i_ = 1:100
 end
 
 bins = linspace(0,5,40);
-[n1,x] = hist(total_errorrt, bins); 
-h = bar(x, n1);
+[n1,x] = histogram(total_errorrt, bins); 
+% h = bar(x, n1);
 
 % avg now over all trials
 % weighed mean err response time!
