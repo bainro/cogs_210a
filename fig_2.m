@@ -27,7 +27,7 @@ for i_ = 1:100
     path = zeros(ntrials,nsteps+1); %This is all the random walks
     rt = zeros(ntrials,1);  %These are the rts across trials 
     correct = zeros(ntrials,1); %This is accuracy data. ZERO IS WRONG, ONE IS RIGHT
-    sampled_beta = normrnd(0.5,0.05,[1,1]);
+    sampled_beta = normrnd(0.5,0.2,[1,1]);
     sampled_bias = sampled_beta*criterion; % ACTUAL BIAS
     %LOOP OVER ntrials.  
     for j = 1:ntrials
