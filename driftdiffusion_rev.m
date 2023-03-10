@@ -72,7 +72,7 @@ h = bar(x, n1);
 
 % avg now over all trials
 % weighed mean err response time!
-avg_err_rt = total_err_rt / total_err_pr;
+avg_err_rt = total_err_rt / total_err_pr
 xline(avg_err_rt,'--b');
 xlabel('Response Time')
 ylabel('Number of Trials')
