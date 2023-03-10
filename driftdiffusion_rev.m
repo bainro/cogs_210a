@@ -147,3 +147,4 @@ tmp_ = histogram(total_errorrt, bins);
 % weighed mean err response time!
 avg_err_rt = total_err_rt / total_err_pr
 xline(avg_err_rt,'--g');
+legend('Drift Rate Variability', 'Bias Variability');
