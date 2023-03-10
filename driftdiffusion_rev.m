@@ -58,7 +58,7 @@ for i_ = 1:100
     %convert rt to milliseconds
     rt = rt*dt;
     errorrt = rt(find(correct == 0));
-    total_errorrt = total_errorrt + errorrt
+    total_errorrt = [total_errorrt, errorrt];
     % this trial's avg
     avg_err_rt = mean(errorrt);
     err_pr = 1 - mean(correct)
