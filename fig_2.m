@@ -62,6 +62,9 @@ for i_ = 1:100
     end
     % this trial's avg
     avg_err_rt = mean(errorrt);
+    if empty(errorrt)
+        avg_err_rt = 0;
+    end
     err_pr = 1 - mean(correct);
     total_err_rt = total_err_rt + avg_err_rt * err_pr;
     total_err_pr = total_err_pr + err_pr;
