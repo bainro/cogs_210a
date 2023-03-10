@@ -26,7 +26,7 @@ figure
 
 % loop over all 100 samples of drift rate (i.e. mu)
 for i = 1:100
-    sampled_mu = normrnd(mu,0.1,[1,1])
+    sampled_mu = normrnd(mu,0.1,[1,1]);
     %LOOP OVER ntrials.  
     for j = 1:ntrials
         goodpath = 0;
@@ -59,7 +59,7 @@ for i = 1:100
     errorrt = rt(find(correct == 0));
     % this trial's avg
     avg_err_rt = mean(errorrt);
-    err_pr = 1 - mean(correct);
+    err_pr = 1 - mean(correct)
     total_err_rt = total_err_rt + avg_err_rt * err_pr;
     total_err_pr = total_err_pr + err_pr;
     hold on
